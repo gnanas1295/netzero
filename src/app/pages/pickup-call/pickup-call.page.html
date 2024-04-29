@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="success">
+    <ion-buttons slot="start">
+      <ion-back-button> text=""</ion-back-button>
+    </ion-buttons>
+    <ion-title>Pickup Call</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img src="https://static.vecteezy.com/system/resources/previews/000/153/588/original/vector-roadmap-location-map.jpg" />
+  <ion-card>
+    <ion-card-content>
+      <p>Address: Null Street</p>
+      <p>Zipcode: 5465465465</p>
+      <p>Number: 564546566</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-item lines="inset">
+      <ion-label position="floating">Notes for the Pickup Person</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button size="full" color="success">
+    Create Pickup Call
+  </ion-button>
+</ion-content>
