@@ -9,3 +9,18 @@ ion-list{
 p {
     white-space: normal;
 }
+
+/* Adjust the back button size */
+ion-back-button {
+    /* Set a custom width and height */
+    width: 40px;
+    height: 40px;
+  
+    /* You can also adjust other properties like padding */
+    padding: 5px;
+  }
+  
+  /* Optionally, you can hide the back button text */
+  ion-back-button .button-text {
+    display: none;
+  }

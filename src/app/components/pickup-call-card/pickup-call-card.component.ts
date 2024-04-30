@@ -1,4 +1,4 @@
-import { Component, Input, input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-pickup-call-card',
@@ -15,6 +15,12 @@ export class PickupCallCardComponent  implements OnInit {
   @Input() createdAt: string = "";
   @Input() notes: string = "";
   @Input() value: string= "";
+
+  @Output() buttonClicked: EventEmitter<void> = new EventEmitter<void>();
+
+  onButtonClick() {
+    this.buttonClicked.emit();
+  }
 
   constructor() { }
 
