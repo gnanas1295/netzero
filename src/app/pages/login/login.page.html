@@ -18,7 +18,7 @@
             <ion-input type="password" formControlName = "password"></ion-input>
           </ion-item>
           <ion-label color="danger" *ngIf = "form?.get('password')?.touched && form?.get('password')?.errors?.['required']">Password is Mandatory</ion-label>
-          <ion-button shape="round" color="dark" size= "full" fill="clear" [disabled] = "!form.get('email')?.valid">Forgot email/password</ion-button>
+          <ion-button shape="round" color="dark" size= "full" fill="clear" [disabled] = "!form.get('email')?.valid" (click)="forgotEmailPassword()">Forgot email/password</ion-button>
           <ion-button shape="round" color="success" size= "full" [disabled]="!form.valid" (click)="login()">Login</ion-button>
           <ion-button shape="round" color="success" size= "full" (click)="register()">Register</ion-button>
         </ion-card-content>
