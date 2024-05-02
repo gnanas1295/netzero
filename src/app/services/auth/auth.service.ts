@@ -1,22 +1,34 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user/User';
+
+import {setPersistence, signInWithEmailAndPassword, browserLocalPersistence} from 'firebase/auth';
+import {Auth, UserCredential, sendPasswordResetEmail} from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  // private auth: Auth = inject(Auth);
   constructor() { }
+
   recoverEmailPassword(email: string) : Observable<void>{
     return new Observable<void>(observer => {
-      setTimeout(()=>{
+      setTimeout(() => {
         if (email == "error@email.com"){
           observer.error({message: "Email not found"});
         }
         observer.next();
         observer.complete();
-      }, 3000);
+        },3000);
+      // sendPasswordResetEmail(this.auth, email).then(() => {
+      //   observer.next();
+      //   observer.complete();
+      // }).catch(error => {
+      //   observer.error(error);
+      //   observer.complete();
+      // })
     })
   }
 

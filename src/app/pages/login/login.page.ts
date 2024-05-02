@@ -10,6 +10,7 @@ import { LoginState } from 'src/store/login/LoginState';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { login, loginFail, loginSuccess, recoverPassword, recoverPasswordFail, recoverPasswordSuccess } from 'src/store/login/login.actions';
 import { Subscription } from 'rxjs';
+import { ClipboardService } from 'src/app/clipboard.service';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,7 @@ export class LoginPage implements OnInit, OnDestroy {
 
   form: FormGroup;
 
-  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<AppState>, private toastController: ToastController, private authService: AuthService) { 
+  constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<AppState>, private toastController: ToastController, private authService: AuthService, private clipboardService: ClipboardService) { 
     this.form = new FormGroup({
 
     });
@@ -39,6 +40,20 @@ export class LoginPage implements OnInit, OnDestroy {
       this.onIsLoggedIn(loginState);
       this.toggleLoading(loginState);
     })
+  }
+
+  copyEmailToClipboard(): void {
+    const emailValue = this.form.get('email')?.value;
+    if (emailValue) {
+      this.clipboardService.copyToClipboard(emailValue);
+    }
+  }
+
+  copyPasswordToClipboard(): void {
+    const passwordValue = this.form.get('password')?.value;
+    if (passwordValue) {
+      this.clipboardService.copyToClipboard(passwordValue);
+    }
   }
 
   ngOnDestroy() {

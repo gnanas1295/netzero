@@ -8,6 +8,9 @@ import { LoaderPageRoutingModule } from './loader-routing.module';
 
 import { LoaderPage } from './loader.page';
 
+import { Auth } from '@angular/fire/auth';
+import { AuthService } from 'src/app/services/auth/auth.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +18,7 @@ import { LoaderPage } from './loader.page';
     IonicModule,
     LoaderPageRoutingModule
   ],
-  declarations: [LoaderPage]
+  declarations: [LoaderPage],
+  providers: [AuthService]
 })
 export class LoaderPageModule {}
